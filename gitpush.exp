@@ -1,0 +1,12 @@
+#!/usr/bin/expect
+set user [lindex $argv 0]
+set password [lindex $argv 1]
+set timeout 10
+
+spawn git push
+expect "Username*"
+send "$user\n"
+expect "Password*"
+send "$password\n"
+expect eof
+
